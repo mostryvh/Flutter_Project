@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
+import 'package:flutter_application_1/core/helpers/app_routes.dart';
 
 class VerificationScreen extends StatelessWidget {
   final String titleName;
@@ -100,7 +102,7 @@ class VerificationScreen extends StatelessWidget {
                   height: 48,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, nextRouteName);
+                      NavigationHelper.goToAndReplace(context, nextRouteName);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF54408C),

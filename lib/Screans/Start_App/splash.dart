@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
+import 'package:flutter_application_1/core/helpers/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,15 +13,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    GoNext();
+    goNext();
   }
 
-  void GoNext() {
+  void goNext() async{
     Future.delayed(Duration(seconds: 3), () {
-      if(context.mounted){
-        
-      Navigator.pushReplacementNamed(context, "onboarding1");
-      }
+      if (!mounted) return;
+
+         NavigationHelper.goToAndReplace(context, AppRoutes.onboarding1);
+
+      
     });
   }
 

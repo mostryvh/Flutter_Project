@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'VerificationScreen.dart';
+import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
+import 'package:flutter_application_1/core/helpers/app_routes.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -29,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     IconButton(
                       icon: const Icon(Icons.arrow_back, color: Colors.black),
                       onPressed: () {
-                        Navigator.pop(context);
+                      NavigationHelper.goTo(context, AppRoutes.login);
                       },
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
@@ -233,7 +235,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "login");
+                            NavigationHelper.goTo(context, AppRoutes.login);
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,

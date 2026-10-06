@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
+import 'package:flutter_application_1/core/helpers/app_routes.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -15,7 +17,7 @@ class OnboardingScreen extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "SignUp");
+                  NavigationHelper.goToAndReplace(context, AppRoutes.signUp);
                 },
                 child: Text(
                   "Skip",
@@ -80,7 +82,10 @@ class OnboardingScreen extends StatelessWidget {
               width: 327,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "onboarding2");
+                  NavigationHelper.goToAndReplace(
+                    context,
+                    AppRoutes.onboarding2,
+                  );
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -106,7 +111,7 @@ class OnboardingScreen extends StatelessWidget {
               width: 327,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "login");
+                  NavigationHelper.goToAndReplace(context, AppRoutes.login);
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -149,7 +154,7 @@ class OnboardingScreen2 extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "SignUp");
+                  NavigationHelper.goToAndReplace(context, AppRoutes.signUp);
                 },
                 child: Text(
                   "Skip",
@@ -213,7 +218,10 @@ class OnboardingScreen2 extends StatelessWidget {
               width: 327,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "onboarding3");
+                  NavigationHelper.goToAndReplace(
+                    context,
+                    AppRoutes.onboarding3,
+                  );
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -239,7 +247,7 @@ class OnboardingScreen2 extends StatelessWidget {
               width: 327,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "login");
+                  NavigationHelper.goToAndReplace(context, AppRoutes.login);
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -283,7 +291,7 @@ class OnboardingScreen3 extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "SignUp");
+                  NavigationHelper.goToAndReplace(context, AppRoutes.signUp);
                 },
                 child: Text(
                   "Skip",
@@ -347,7 +355,7 @@ class OnboardingScreen3 extends StatelessWidget {
               width: 327,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "SignUp");
+                  NavigationHelper.goToAndReplace(context, AppRoutes.signUp);
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -373,8 +381,7 @@ class OnboardingScreen3 extends StatelessWidget {
               width: 327,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, "login");
-
+                  NavigationHelper.goToAndReplace(context, AppRoutes.login);
                 },
 
                 style: ElevatedButton.styleFrom(

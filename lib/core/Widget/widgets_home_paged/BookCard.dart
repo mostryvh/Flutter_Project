@@ -15,7 +15,9 @@ class BookCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 120,
-      child: Column(
+      
+      child:
+       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(

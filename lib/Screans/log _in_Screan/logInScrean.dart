@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
+import 'package:flutter_application_1/core/helpers/app_routes.dart';
 
 class Loginscrean extends StatefulWidget {
   const Loginscrean({super.key});
@@ -166,7 +168,10 @@ class _Loginscrean extends State<Loginscrean> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, "home");
+                          NavigationHelper.goToAndReplace(
+                            context,
+                            AppRoutes.main,
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF5B3F99),
@@ -203,7 +208,7 @@ class _Loginscrean extends State<Loginscrean> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "SignUp");
+                            NavigationHelper.goTo(context, AppRoutes.signUp);
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
+import 'package:flutter_application_1/core/helpers/app_routes.dart';
 
 class SucssesSing extends StatelessWidget {
   const SucssesSing({super.key});
@@ -50,7 +52,7 @@ class SucssesSing extends StatelessWidget {
             width: 327,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, "main");
+                NavigationHelper.goToAndClearStack(context, AppRoutes.main);
               },
 
               style: ElevatedButton.styleFrom(
