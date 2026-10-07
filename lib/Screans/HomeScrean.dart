@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/Widget/widgets_home_paged/section_header.dart';
-import 'package:flutter_application_1/core/Widget/widgets_home_paged/BookCard.dart';
-import 'package:flutter_application_1/core/Widget/widgets_home_paged/Best_Vendors.dart';
-import 'package:flutter_application_1/core/Widget/widgets_home_paged/authors_card.dart';
-import 'package:flutter_application_1/core/Widget/widgets_home_paged/special_offer_card.dart';
+import 'package:flutter_application_1/core/Widget/section_header_home.dart';
+import 'package:flutter_application_1/core/Widget/BookCard_home.dart';
+import 'package:flutter_application_1/core/Widget/Best_Vendors_home.dart';
+import 'package:flutter_application_1/core/Widget/authors_card_home.dart';
+import 'package:flutter_application_1/core/Widget/special_offer_card_home.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

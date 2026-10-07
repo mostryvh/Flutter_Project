@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/Widget/widget_category/category_item_card.dart';
+import '../core/Widget/category_item_card.dart';
 
 class CategoryScrean extends StatefulWidget {
   const CategoryScrean({super.key});
