@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
-import 'package:flutter_application_1/core/helpers/app_routes.dart';
 
 class VerificationScreen extends StatelessWidget {
   final String titleName;

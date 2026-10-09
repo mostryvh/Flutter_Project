@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/Widget/category_item_card.dart';
 import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
-import 'package:flutter_application_1/core/helpers/app_routes.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class YourFavorites extends StatelessWidget {
   const YourFavorites({super.key});
@@ -29,6 +30,38 @@ class YourFavorites extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+      ),
+
+      body: ValueListenableBuilder(
+        valueListenable: Hive.box('favorites').listenable(),
+        builder: (BuildContext context, Box box, Widget? child) {
+          var favoriteList = box.values.toList();
+
+          if (favoriteList.isEmpty) {
+            return Center(child: Text("not have any favorite book "));
+          } else {
+            return ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              itemCount: favoriteList.length,
+              separatorBuilder: (context, index) {
+                return const Divider(
+                  color: Color(0xFFEEEEEE),
+                  thickness: 1,
+                  height: 32,
+                );
+              },
+              itemBuilder: (context, index) {
+                var currentItem = favoriteList[index];
+                return CategoryItemCard(
+                  imagePath: currentItem['image'],
+                  nameBook: currentItem['name'],
+                  pricBook: currentItem['price'],
+                  bookId: currentItem['id'],
+                );
+              },
+            );
+          }
+        },
       ),
     );
   }

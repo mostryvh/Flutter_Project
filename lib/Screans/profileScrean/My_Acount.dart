@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
-import 'package:flutter_application_1/core/helpers/app_routes.dart';
 import 'package:flutter_application_1/core/helpers/text_filde_helper.dart';
 import 'package:flutter_application_1/core/helpers/custom_elevated_button.dart';
 import 'package:flutter_application_1/core/helpers/shared_prefs_helper.dart';
@@ -73,7 +72,7 @@ class _MyAcountState extends State<MyAcount> {
                     SharedPrefsHelper.saveData(key: 'userEmail', value: newEmail);
 
                     FocusScope.of(context).unfocus();
-                    Future.delayed(const Duration(milliseconds: 150), () {
+                    Future.delayed(Duration(milliseconds: 150), () {
                       if (!context.mounted) return;
                       NavigationHelper.goBack(context);
                     });

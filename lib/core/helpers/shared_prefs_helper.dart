@@ -13,4 +13,7 @@ class SharedPrefsHelper {
   static String? getData({required String key}) {
     return pref.getString(key);
   }
+  static void removeData({required String key}) {
+  pref.remove(key);
+}
 }

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class NavigationHelper {
   //for push navogator
-  static void goTo(BuildContext context, String routeName) {
-    Navigator.pushNamed(context, routeName);
-  }
+  static Future? goTo(BuildContext context, String routeName) {
+     return Navigator.pushNamed(context, routeName);
+   }
 
   //for push&   Killed the page
   static void goToAndReplace(BuildContext context, String routeName) {

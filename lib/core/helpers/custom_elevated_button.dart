@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class ElevatedButtonHelper extends StatelessWidget {
   final String textBottom;
   final VoidCallback onPressed;
-  const ElevatedButtonHelper({super.key,required this.onPressed ,required this.textBottom,});
+  final Color? backgroundColor; 
+  final Color? textColor;
+  const ElevatedButtonHelper({super.key,required this.onPressed ,required this.textBottom,this.backgroundColor,this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class ElevatedButtonHelper extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFF5B3F99),
+          backgroundColor:backgroundColor?? Color(0xFF5B3F99),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(48),
           ),
@@ -26,7 +28,7 @@ class ElevatedButtonHelper extends StatelessWidget {
             fontSize: 16,
             height: 1.5,
             letterSpacing: 0.3,
-            color: Color(0xFFFFFFFF),
+            color: textColor ?? Colors.white,
           ),
         ),
       ),

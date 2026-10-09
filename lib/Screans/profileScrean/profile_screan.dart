@@ -3,7 +3,7 @@ import 'package:flutter_application_1/core/helpers/navigation_helper.dart';
 import 'package:flutter_application_1/core/helpers/app_routes.dart';
 import 'package:flutter_application_1/core/Widget/profile_option.dart';
 import 'package:flutter_application_1/core/helpers/shared_prefs_helper.dart';
-import 'My_Acount.dart';
+import 'package:flutter_application_1/core/helpers/custom_elevated_button.dart';
 
 class ProfileScrean extends StatefulWidget {
   const ProfileScrean({super.key});
@@ -34,7 +34,6 @@ class _ProfileScreanState extends State<ProfileScrean> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("profile"), centerTitle: true),
-
       body: Column(
         children: [
           Divider(color: Color(0xFFE8E8E8), thickness: 1),
@@ -81,7 +80,81 @@ class _ProfileScreanState extends State<ProfileScrean> {
                 Spacer(),
                 InkWell(
                   onTap: () {
-                    NavigationHelper.goTo(context, AppRoutes.login);
+                    showModalBottomSheet(
+                      context: context,
+                      showDragHandle: true,
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20),
+                        ),
+                      ),
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 24,
+                            vertical: 16,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "Logout",
+                                  style: TextStyle(
+                                    fontFamily: 'OpenSans',
+                                    fontWeight: FontWeight(700),
+                                    fontSize: 18,
+                                    color: Color(0xFF121212),
+                                  ),
+                                ),
+                              ),
+
+                              SizedBox(height: 12),
+
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight(400),
+                                    fontSize: 16,
+                                    height: 1.5,
+                                    color: Color(0xFF121212),
+                                  ),
+                                ),
+                              ),
+
+                              SizedBox(height: 32),
+                              ElevatedButtonHelper(
+                                textBottom: "Log Out",
+                                onPressed: () {
+                                  SharedPrefsHelper.removeData(key:'userName');
+                                  SharedPrefsHelper.removeData( key:'userEmail');
+                                  NavigationHelper.goToAndClearStack(
+                                    context,
+                                    AppRoutes.login,
+                                  );
+                                },
+                              ),
+                              SizedBox(height: 14),
+
+                              ElevatedButtonHelper(
+                                textBottom: "Cancel",
+                                backgroundColor: const Color(0xFFFAF9FD),
+                                textColor: const Color(0xFF54408C),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
                   },
                   child: Text(
                     "Logout",
@@ -104,16 +177,13 @@ class _ProfileScreanState extends State<ProfileScrean> {
             icon: Icons.person,
             title: "My Account",
             onTap: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MyAcount()),
-                
-              );
-              _loadUserData();
+              await NavigationHelper.goTo(context, AppRoutes.myAcount);
 
-             },
+              _loadUserData();
+            },
           ),
           SizedBox(height: 8),
+
           ProfileOption(
             icon: Icons.favorite,
             title: "You Favorite",

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+
 import 'core/helpers/app_routes.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:flutter_application_1/core/helpers/shared_prefs_helper.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-
-
- 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPrefsHelper.init();
+  await Hive.initFlutter();
+
+  await Hive.openBox("favorites");
   runApp(MyApp());
 }
 
@@ -21,9 +23,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       title: "Bazar",
       debugShowCheckedModeBanner: false,
-      routes:  AppRoutes.getRoutes(),
+      routes: AppRoutes.getRoutes(),
       initialRoute: AppRoutes.splash,
     );
   }
 }
- 
