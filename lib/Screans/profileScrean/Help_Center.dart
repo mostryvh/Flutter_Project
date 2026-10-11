@@ -29,6 +29,8 @@ class HelpCenter extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+
+      body: Text("data"),
     );
   }
 }

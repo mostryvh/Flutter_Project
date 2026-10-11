@@ -40,25 +40,32 @@ class YourFavorites extends StatelessWidget {
           if (favoriteList.isEmpty) {
             return Center(child: Text("not have any favorite book "));
           } else {
-            return ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-              itemCount: favoriteList.length,
-              separatorBuilder: (context, index) {
-                return const Divider(
-                  color: Color(0xFFEEEEEE),
-                  thickness: 1,
-                  height: 32,
-                );
-              },
-              itemBuilder: (context, index) {
-                var currentItem = favoriteList[index];
-                return CategoryItemCard(
-                  imagePath: currentItem['image'],
-                  nameBook: currentItem['name'],
-                  pricBook: currentItem['price'],
-                  bookId: currentItem['id'],
-                );
-              },
+            return ScrollConfiguration(
+              behavior:   ScrollBehavior().copyWith(overscroll: false),
+              child: ListView.separated(
+                padding:   EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 16,
+                ),
+                itemCount: favoriteList.length,
+                separatorBuilder: (context, index) {
+                  return   Divider(
+                    color: Color(0xFFEEEEEE),
+                    thickness: 1,
+                    height: 32,
+                  );
+                },
+                itemBuilder: (context, index) {
+                  var currentItem = favoriteList[index];
+
+                  return CategoryItemCard(
+                    imagePath: currentItem['image'],
+                    nameBook: currentItem['name'],
+                    pricBook: currentItem['price'],
+                    bookId: currentItem['id'],
+                  );
+                },
+              ),
             );
           }
         },
